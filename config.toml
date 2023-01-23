@@ -149,6 +149,10 @@ weight = 2
 # name = "bilibili"
 # url = "https://space.bilibili.com/19767474"
 # weight = 3
+[[menu.link]]
+name = "Mastodon"
+url = "https://infosec.exchange/@ragingGoblin"
+weight = 3
 
 [build]
 noJSConfigInAssets = true
