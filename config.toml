@@ -139,16 +139,16 @@ weight = 5
 
 [[menu.link]]
 name = "GitHub"
-url = "https://github.com/dsrkafuu"
+url = "https://github.com/UsernameTaken420"
 weight = 1
 [[menu.link]]
 name = "Twitter"
-url = "https://twitter.com/dsrkafuu"
+url = "https://twitter.com/greenFrogzard"
 weight = 2
-[[menu.link]]
-name = "bilibili"
-url = "https://space.bilibili.com/19767474"
-weight = 3
+# [[menu.link]]
+# name = "bilibili"
+# url = "https://space.bilibili.com/19767474"
+# weight = 3
 
 [build]
 noJSConfigInAssets = true
