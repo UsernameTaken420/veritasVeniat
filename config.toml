@@ -69,7 +69,7 @@ description = "A minimal Hugo theme with nice theme color."
 og = "/img/og.png"                                          # This will use the image called og.png in static/img folder
 
 # Posts shown in homepage
-mainSections = ["post"]
+mainSections = ["posts"]
 
 # Bangumi image chart id
 # bgmImageChart = "000000"
