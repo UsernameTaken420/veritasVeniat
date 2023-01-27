@@ -3,18 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://veritasVeniat.com/posts/hello-world/</loc>
+    <loc>https://www.veritasVeniat.com/posts/hello-world/</loc>
     <lastmod>2023-01-26T22:41:58-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://veritasVeniat.com/posts/</loc>
+    <loc>https://www.veritasVeniat.com/posts/</loc>
     <lastmod>2023-01-26T22:41:58-03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://veritasVeniat.com/</loc>
+    <loc>https://www.veritasVeniat.com/</loc>
     <lastmod>2023-01-26T22:41:58-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.veritasVeniat.com/about/</loc>
   </url>
   
 </urlset>

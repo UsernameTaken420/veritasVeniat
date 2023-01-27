@@ -1,4 +1,4 @@
-baseURL = "https://veritasVeniat.com"
+baseURL = "https://www.veritasVeniat.com"
 title = "Veritas Veniat"
 
 theme = "fuji"
@@ -120,10 +120,10 @@ tag = "tags"
 name = "Home"
 url = "/"
 weight = 1
-[[menu.nav]]
-name = "Archives"
-url = "/archives/"
-weight = 2
+# [[menu.nav]]
+# name = "Archives"
+# url = "/archives/"
+# weight = 2
 [[menu.nav]]
 name = "About"
 url = "/about/"

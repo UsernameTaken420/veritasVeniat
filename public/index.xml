@@ -2,18 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Veritas Veniat</title>
-    <link>https://veritasVeniat.com/</link>
+    <link>https://www.veritasVeniat.com/</link>
     <description>Recent content on Veritas Veniat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Jan 2023 22:41:58 -0300</lastBuildDate><atom:link href="https://veritasVeniat.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Jan 2023 22:41:58 -0300</lastBuildDate><atom:link href="https://www.veritasVeniat.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hello World</title>
-      <link>https://veritasVeniat.com/posts/hello-world/</link>
+      <link>https://www.veritasVeniat.com/posts/hello-world/</link>
       <pubDate>Thu, 26 Jan 2023 22:41:58 -0300</pubDate>
       
-      <guid>https://veritasVeniat.com/posts/hello-world/</guid>
+      <guid>https://www.veritasVeniat.com/posts/hello-world/</guid>
       <description>Introduction Just trying to get Hugo all set up</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.veritasVeniat.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.veritasVeniat.com/about/</guid>
+      <description>Me About Me Placeholder</description>
     </item>
     
   </channel>
