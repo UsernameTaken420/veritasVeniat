@@ -1,3 +1,0 @@
-User-agent: *
-
-Sitemap: https://www.veritasVeniat.com/sitemap.xml
