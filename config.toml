@@ -129,8 +129,8 @@ name = "About"
 url = "/about/"
 weight = 3
 [[menu.nav]]
-name = "Search"
-url = "/search/"
+name = "Salary Transparency"
+url = "/salary.md"
 weight = 4
 [[menu.nav]]
 name = "RSS"
