@@ -130,7 +130,7 @@ url = "/about/"
 weight = 3
 [[menu.nav]]
 name = "Salary Transparency"
-url = "/content/salary.md"
+url = "/salary"
 weight = 4
 [[menu.nav]]
 name = "RSS"
