@@ -144,6 +144,7 @@ weight = 2
 [[menu.link]]
 name = "Mastodon"
 url = "https://infosec.exchange/@ragingGoblin"
+rel = "me"
 weight = 3
 
 [build]
