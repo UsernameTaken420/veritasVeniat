@@ -65,8 +65,8 @@ copyrightStartYear = "2022"
 
 # Open Graph & Twitter Card variables
 # You can also set description and images in post front matter individually
-description = "A minimal Hugo theme with nice theme color."
-og = "/img/og.png"                                          # This will use the image called og.png in static/img folder
+description = "A small blog for ramblings about Security and Testing"
+og = "/static/favicon.ico"                                          # This will use the image called og.png in static/img folder
 
 # Posts shown in homepage
 mainSections = ["posts"]
@@ -120,10 +120,6 @@ tag = "tags"
 name = "Home"
 url = "/"
 weight = 1
-# [[menu.nav]]
-# name = "Archives"
-# url = "/archives/"
-# weight = 2
 [[menu.nav]]
 name = "About"
 url = "/about/"
@@ -145,10 +141,6 @@ weight = 1
 name = "Twitter"
 url = "https://twitter.com/greenFrogzard"
 weight = 2
-# [[menu.link]]
-# name = "bilibili"
-# url = "https://space.bilibili.com/19767474"
-# weight = 3
 [[menu.link]]
 name = "Mastodon"
 url = "https://infosec.exchange/@ragingGoblin"
