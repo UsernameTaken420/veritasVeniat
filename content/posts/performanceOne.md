@@ -1,7 +1,6 @@
 ---
 title: "Cold Booting into Performance Testing"
 date: 2023-02-04T16:50:25-03:00
-draft: true
 tags:
 - performance
 - testing
@@ -56,4 +55,8 @@ const randomUUID = uuidv4();
 
 In a twist of events, I was informed by the project architect that the number expectations on launch were no longer 20k, but 200k.
 Assuming a number is still a number, I was asked whether this changed our game plan at all, to which I naively answered "I don't
-really think so" (this turned out to be **wrong**)
+really think so" (this turned out to be **wrong**).
+
+Taking a step back to look at our framework for performance testing, pushing the code repo triggers a CI/CD pipeline that culminates 
+in running the script through k6 on a bunch of kubernetes pods. The pod configuration used so far was in no way enough to actually 
+generate the expected load of 200k.
