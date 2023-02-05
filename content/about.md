@@ -6,6 +6,6 @@ tags:
 - about
 ---
 
-### Me
+![Simplistic depiction of the author in black and green](/pfp.jpg)
 
-About Me Placeholder
+Security enthusiast, Tester, general weeb and lover of low-poly ps1 models.
