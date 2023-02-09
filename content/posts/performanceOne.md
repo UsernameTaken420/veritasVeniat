@@ -46,7 +46,7 @@ const tokenPayload = json.stringify({
 });
 
 const jwt = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-	${encoding.base64encode(tokenpayload, "rawstd")}.
+	${encoding.base64encode(tokenPayload, "rawstd")}.
 	very-secret-key`;
 ```
 
