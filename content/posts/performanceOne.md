@@ -38,12 +38,22 @@ own tokens for authentication.
 Cue some quick searches about base64 for k6, a handy secret key given to me by our architect and I had my own JWT generator ingrained
 into my script.
 
-<!-- image of the jwt generator -->
+```
+const tokenPayload = json.stringify({
+	userId: uuidv4(),
+	exp: 999999999,	
+	sub: "load-testing",
+});
+
+const jwt = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+	${encoding.base64encode(tokenpayload, "rawstd")}.
+	very-secret-key`;
+```
 
 ### The (smaller) second problem
 
 I quickly realised I was going to need unique usernames for each Virtual User, and there was no way they could be allowed to collide.
-Thankfully, this was quickly solved with the use of 
+Thankfully, this was quickly solved with the use of good old `uuidv4()` again 
 
 ```
 import { uuidv4 } from 'https://jslib.k6.io/k6-utils/1.4.0/index.js';
@@ -60,3 +70,13 @@ really think so" (this turned out to be **wrong**).
 Taking a step back to look at our framework for performance testing, pushing the code repo triggers a CI/CD pipeline that culminates 
 in running the script through k6 on a bunch of kubernetes pods. The pod configuration used so far was in no way enough to actually 
 generate the expected load of 200k.
+
+This instigated a series of talks with our architects and DevOps, helping me figure out *how* and *when* the pods would scale, allowing
+me to more precisely calibrate the values in my tests so as to meet the expected load.
+
+### The result so far
+
+<!--screenshot of Grafana graphs-->
+
+The last week, we've managed to hit our endpoints up to 3k times *per second* each, so far with evenly spread loads in the name of getting
+the hang of whatever we're doing. Next step? Staged tests with interesting spikes to verify scaling capabilities.
