@@ -29,14 +29,21 @@ After all, our architect tells me they expect about 20k concurrent users.
 Dusting off my notes, it all started to come back to me. The script-making in good old .js files, calling the tools and grouping
 steps BDD-style, the works.
 
+```
+group("Verify user was registered", function() {
+	let user = http.get(`${URL}/api/user/`, headers);
+	metrics(user, 200); // expecting 200 OK response
+});
+```
+
 ### The first problem
 
 All of these tests, however, we being run under my real account for the purposes of acquiring a real JWT (I would come to love these
 little buggers). If we were to run these tests through the originally-stated 20k users, I'd probably need a way to give them their
 own tokens for authentication. 
 
-Cue some quick searches about base64 for k6, a handy secret key given to me by our architect and I had my own JWT generator ingrained
-into my script.
+Cue some quick searches about base64 for k6, a handy secret key given to me by our architect and with the help of our backend dev 
+I had my own JWT generator ingrained into my script and working.
 
 ```
 const tokenPayload = json.stringify({
@@ -78,5 +85,14 @@ me to more precisely calibrate the values in my tests so as to meet the expected
 
 <!--screenshot of Grafana graphs-->
 
-The last week, we've managed to hit our endpoints up to 3k times *per second* each, so far with evenly spread loads in the name of getting
-the hang of whatever we're doing. Next step? Staged tests with interesting spikes to verify scaling capabilities.
+The last week, we've managed to hit our endpoints up to ~~3k~~ 30k times *per second* each, so far with evenly spread loads in the name of getting
+the hang of whatever we're doing. Staged loads with planned spikes or large amounts of requests right from a cold start have resulted in decent 
+results so far, but the number of dropped iterations points us toward more finely tuning the numbers set for each scenario.
+
+Overall, this was an excellent learning opportunity (and very humbling!) for all of the involved, given neither the assigned architect nor I
+had ever actually ran one of these excercises before and had to learn the terminologies from almost scratch.
+
+All in all...
+
+![](/BORN_TO_DIE.jpg)
+<!--meme-->
