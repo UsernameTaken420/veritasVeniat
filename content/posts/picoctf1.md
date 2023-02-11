@@ -35,3 +35,17 @@ flag.txt.en
 Cold-calling the python file reveals the use to be `-d | -e [file]`, attempting to (assumedly) decrypt the 
 flag file displays `Enter the password:`. This suggests the user to try `cat pw.txt | python3 ende.py -d flag.txt.en` 
 which reveals the flag.
+
+## Wave a flag
+
+The user is given a file titled `warm` and told to invoke help flags. A first execution with no flags returns 
+`Hello user! Pass me a -h to learn what I can do!`. Obeying the program and retrying with `-h` returns 
+`Oh, help? I actually don't do much, but I do have this flag here: {flag}`.
+
+## Nice netcat...
+
+User is told to `nc mercury.picoctf.net 43239`, but is warned that "it doesn't speak English...".
+
+Upon executing the netcat command, the user is returned a series of numbers, whether they untuit it or pick up from the 
+hints (like I did) that it's a series of ASCII values, running the values through `awk '{ printf("%c", $0); }'` will return
+the excercise flag.
