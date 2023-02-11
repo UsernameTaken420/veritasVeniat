@@ -33,7 +33,7 @@ post = "/:section/:filename/" # Custom post links, e.g. "/:year/:month/:title/"
 [params]
 author = "Nicolas Gabin"                # You can also set author in post front matter individually
 subTitle = "Sleepy's Personal Blog"
-defaultTheme = "auto"              # default theme when first visit (auto|dark|light)
+defaultTheme = "dark"              # default theme when first visit (auto|dark|light)
 
 # Source URL of the website, will appear in the footer
 sourceURL = "https://github.com/usernametaken420/veritasVeniat"
@@ -148,7 +148,7 @@ rel = "me"
 weight = 3
 
 [build]
-noJSConfigInAssets = true
+noJSConfigInAssets = false
 
 [security]
 enableInlineShortcodes = true
