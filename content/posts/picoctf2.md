@@ -48,8 +48,9 @@ be worth a try, which introduced me to the concept of Format Strings
 ## f"strings?"
 
 The writeup I found suggested hitting the excercise with a bunch of `%p` in order to extract values off the stack (given the api flag is read at one point), 
-this results in the user being handed hexadecimal values corresponding to whatever's loaded at the time. Searching for the hex encoding of "pico" and correcting 
-for endian-ness (cyberchef's "swap endianness" functioni) results in the flag being output among some garbage characters.
+this results in the user being handed hexadecimal values corresponding to whatever's loaded at the time. 
+Searching for the hex encoding of "pico" and correcting for endian-ness (cyberchef's "swap endianness" function) 
+results in the flag being output among some garbage characters.
 
 ## Learnings
 
