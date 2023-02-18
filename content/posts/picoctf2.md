@@ -1,58 +1,77 @@
 ---
-title: "Diving into picoCTF: Stonks"
-date: 2023-02-11T21:46:00-03:00
+title: "Diving into picoCTF: part 2"
+date: 2023-02-18T12:33:04-03:00
 draft: false
 tags:
 - CTF
 - picoCTF
 - security
-- reverse engineering
-- binary exploitation
 ---
 
-# The challenge
-
-The "Stonks" challenge from picoCTF2021 presents us with a binary epxloitation excercise, we are supposed to connect via netcat to an address 
-presented to us as `nc mercury.picoctf.net 53437` and we have a downloadable file titled `vuln.c`.
+In which I continue through the General Skills section of picoCTF
 
 <!--more-->
 
-## Staring at the sauce
+## Static isn't always noise
 
-Peeping at `vuln.c` and alternatively building it, we see it refuses to function without a file titled `api` in the same directory, then it reads 
-from user input whether to display a portfolio or "buy stonks", which prompts the user for an api key.
+The challenge begins with the text "Can you look at the data in this binary: static? This BASH script might help!" and a link 
+to the two files: a binary file titled `static` and a bash script titled `ltdis.sh`.
 
-## The naive attempt
+### Rushing into it
 
-First idea was to throw an excessive amount of characters at any of the steps where user input is taken, this resulted in the program pipe being 
-broken after 1025 'a's, executing whatever is typed after said characters on the shell.
+Straight up executing the static binary we get the output `Oh hai! Wait what? A flag? Yes, it's around here somewhere!`, given it 
+seems to be a pre-made response, maybe there's some other string inside the file? Running the binary through the strings 
+program as `strings static` reveals the flag, right under the output string!
 
-![](/whoami.PNG)
+### Leftovers
 
-Trying this against `nc mercury.picoctf.net 53437` proved futile since the netcat connection breaks as soon as the program exits, but that didn't 
-stop me from trying:
+This, of course, was slightly underwhelming given we didn't get to use the provided bash script, so maybe let's give that a go...
 
-1. Setting up an http server and serving the api file
-2. `scp`ing the file to my computer
-3. Attempting to netcat to a listener on my computer
+Executing the bash file returns
 
-None of these worked.
+```
+Attempting disassembly of  ...
+objdump: 'a.out': No such file
+objdump: section '.text' mentioned in a -j option, but not found in any input file
+Disassembly failed!
+Usage: ltdis.sh <program-file>
+Bye!
+``` 
+revealing the script will attempt a disassembly of the target binary. Executing as `./ltdis.sh static` gives us
 
-## Advanced giving up
+```
+Attempting disassembly of static ...
+Disassembly successful! Available at: static.ltdis.x86_64.txt
+Ripping strings from binary with file offsets...
+Any strings found in static have been written to static.ltdis.strings.txt with file offset
+```
+so we get a diassembly of the program on `static.ltdis.x86_64.txt` and the output of putting the program through `strings` as we 
+did earlier on `static.ltdis.strings.txt`. Case closed!
 
-So I decided to look up a writeup of the challenge, feeling defeated at the sight of disassembled functions without much of a footing. Luckily, the 
-[first writeup I found](https://github.com/HHousen/PicoCTF-2021/blob/master/Binary%20Exploitation/Stonks/README.md) mentioned being based on a solution 
-from a different writeup for a different excercise, so I figured reading through that one and trying to extrapolate a solution for this problem could 
-be worth a try, which introduced me to the concept of Format Strings
+## Magikarp Ground Mission
 
-## f"strings?"
+Another simple challenge, consisting of booting up an instance and `ssh`ing into it, then looking around the filesystem for pieces 
+of the flag.
 
-The writeup I found suggested hitting the excercise with a bunch of `%p` in order to extract values off the stack (given the api flag is read at one point), 
-this results in the user being handed hexadecimal values corresponding to whatever's loaded at the time. 
-Searching for the hex encoding of "pico" and correcting for endian-ness (cyberchef's "swap endianness" function) 
-results in the flag being output among some garbage characters.
+## The heat trilogy: Let's warm up, Warmed up and 2Warm
 
-## Learnings
+These challenges consisted of shifting values from hex to decimal, binary and ASCII, decent for getting the hang of what each looks 
+like (plus you can do the binary with your fingers).
 
-- `printf` is dangerous
-- knowing the program uses user input, attempt to print `%p` and `%s` a number of times to verify 
+## Strings it
+
+Another binary file, calling `strings` on it returns a ridiculous number of lines, which gets trumped by piping the output to grep like 
+`strings strings | grep picoCTF`.
+
+## I can fix them: fixme1.py and fixme2.py
+
+These two consisted of downloading python files and fixing the syntax error within, first one had extra whitespace (which invokes a 
+syntax error in python) and the second used `=` for a comparison instead of `==`.
+
+## Glitched Cat
+
+We are instructed to `nc` into an address, but are warned that the flag-printing service is glitched, returning 
+`'picoCTF{gl17ch_m3_n07_' + chr(0x61) + chr(0x34) + chr(0x33) + chr(0x39) + chr(0x32) + chr(0x64) + chr(0x32) + chr(0x65) + '}'`.
+
+Recognizing the `chr()` function, we print the output through python by `python3 -c "print('picoCTF{gl17ch_m3_n07_' + chr(0x61) + chr(0x34) + chr(0x33) + chr(0x39) + chr(0x32) + chr(0x64) + chr(0x32) + chr(0x65) + '}')"` 
+and obtain our flag.
