@@ -6,6 +6,7 @@ tags:
 - CTF
 - picoCTF
 - security
+- web exploitation
 ---
 
 Jumping over to the Web Exploitation category for a change
@@ -65,3 +66,40 @@ A quick google search later and we find the Apache configuration is stored in `.
 us another piece of the flag and the tip "I love making websites on my Mac, I can Store a lot of information there.".
 
 To my memory, the one standout thing from working on macs is the `.DS_Store` file, which indeed gives us the last piece of the flag!
+
+## Who are you?
+
+Another entertaining one to recapitulate on the basics, first step is accessing the given url and... we are immediately met 
+with "Only people who use the official PicoBrowser are allowed on this site!", easy enough to circumvent, just need to `curl` the 
+website with `-H "User-agent: PicoBrowser"` and we're in, right?
+
+### Not yet
+
+We're now shown "I don't trust users visiting from another site.". Cryptic, but I think I get what it's going for, we 
+could probably pretend we're visiting from the same site with `--referer [URL]` and this nets us our next clue: "Sorry, this site only worked in 2018.".
+
+HTTP date headers are an easy enough thing, just throw in that good old -H "Date: Tue, 15 Nov 2018 08:12:31 GMT".
+
+### A Hydra with too many headers
+
+Up ahead, we've got the first clue that calls for some actual googling, "I don't trust users who can be tracked.". Simple enough, 
+there is such a thing as `-H "DNT: 1"` which stands for Do Not Track, apparently.
+
+Our cryptic next clue, and the one that took me the longest to figure out, is "This website is only for people from Sweden.". This 
+sent me on a fool's errand of trying different approaches:
+
+1) Try to dig up a relevant HTTP header to include the country code, such as `X-Country-Code`, `Country` or `User-Origin-Countrycode`
+2) `X-Language`, `Accept-Language` and `Content-Language` for `se`, `sv` and `sv-SE`.
+3) Attempt to use a swedish website as `Host: [site url]`
+
+In the end, after a bunch of attempts, I turned to look at headers that could let me use an IP address and settled on taking a random 
+address from Sweden and passing it through `-H "X-forwarded-for: [swedish IP]"`. In the end, this was the correct solution, but I did 
+gain some experience in looking at lists of valid HTTP headers that might be considered uncommon.
+
+### Getting tack-y
+
+My patience already wearing thin, I looked at what I hoped would be the last clue: "You're in Sweden but you don't speak Swedish?"
+
+**facepalm**
+
+One `-H "Accept-Language: sv"` and we were in, the flag ripe for the taking!
