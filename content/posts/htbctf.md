@@ -1,7 +1,6 @@
 ---
 title: "Cyber Apocalypse 2023 Writeup"
 date: 2023-03-25T13:38:00-03:00
-draft: true
 tags:
 - CTF
 - Hackthebox
@@ -100,6 +99,7 @@ Throwing the file into vim and mass-replacing the `eval()` for `echo()` lets us 
 > Pandora discovered the presence of a mole within the ministry. To proceed with caution, she must obtain the master control password for the ministry, which is stored in a password manager. Can you hack into the password manager?
 
 Stepping into the spawned Docker instance, we find a pretty standard login page, with the one oddity present being the option to register.
+
 ![](/web_1_1.PNG)
 
 Intercepting a login request reveals that the website uses a GraphQL to handle the login and that sessions are handled with a JWT token. 
@@ -111,10 +111,36 @@ we manage to dump the entire GraphQL schema, and among the mutations offered we 
 
 Just calling the mutation as-is confirms that authentication is required, so we register a new account and intercept the first request to a mutation made, replacing the 
 target mutation with UpdatePassword and aiming it at the `admin` user. 
-![](/web_1_3.PNG)
 
 Then we log out from our test user and try the newly updated admin credentials and... we're in!
 
 ## Hijack
 
+> The security of the alien spacecrafts did not prove very robust, and you have gained access to an interface allowing you to upload a new configuration to their ship's Thermal Control System. Can you take advantage of the situation without raising any suspicion?
+
+NCing into the Docker instance gives us the options to Create a config or Load one.
+
+Creating one asks for Temperature Units, Propulsion Components Target Temperature, Solar Array Target Temperature, Infrared Spectrometers Target Temperature and Auto Calibration ON/OFF, then returns a serialized config.
+The config can be identified as something under Base64 encoding at sight.
+
+> Example serialized config:`ISFweXRob24vb2JqZWN0Ol9fbWFpbl9fLkNvbmZpZyB7SVJfc3BlY3Ryb21ldGVyX3RlbXA6ICcxMCcsIGF1dG9fY2FsaWJyYXRpb246ICdPRkYnLAogIHByb3B1bHNpb25fdGVtcDogJzEwJywgc29sYXJfYXJyYXlfdGVtcDogJzEwJywgdW5pdHM6IEN9Cg==`
+>
+> Decoded: `!!python/object:__main__.Config {IR_spectrometer_temp: '130', auto_calibration: 'OFF', propulsion_temp: '100', solar_array_temp: '120', units: C}`
+
+However, when attempting to load the configuration, we get "Unable to load config!". Submitting an empty configuration seems to work, though...
+A bogus config like `amogus = 17` encoded to base64 seems to be accepted as well.
+Looking into the technologies used, we find that this is called a "YAML Deserialization Attack" and learn that we can get a "sleep" to execute by sending `!!python/object/apply:time.sleep [2]`.
+
+Looking around for payload crafters, we find [peas](https://github.com/j0lt-github/python-deserialization-attack-payload-generator), which allows us to craft an input that will execute `cat flag.txt` and nets us the flag.
+
 ## Restricted
+
+> You 're still trying to collect information for your research on the alien relic. Scientists contained the memories of ancient egyptian mummies into small chips, where they could store and replay them at will. Many of these mummies were part of the battle against the aliens and you suspect their memories may reveal hints to the location of the relic and the underground vessels. You managed to get your hands on one of these chips but after you connected to it, any attempt to access its internal data proved futile. The software containing all these memories seems to be running on a restricted environment which limits your access. Can you find a way to escape the restricted environment ?
+
+Attempting an NC to the Docker instance reveals it to be running OpenSSH, we attempt to directly ssh to it but find that (of course) our user does not exist.
+
+Examining the Dockerfile for the challenge reveals the intended user to be `restricted`, which we can successfully SSH to without a password.
+
+Upon login we are met with `rbash` or "restricted bash", which is fitting given the name of the excercise. After trying some commands it becomes apparent that the user indeed does not have many permissions, being able to run `pwd` and `echo` but no `ls`, `cd` or any other useful command for navigating. Redirections, such as pipes and output `>` are not allowed either.
+
+Googling around, I look at a [guide on how to break out of a restricted shell](https://www.hackplayers.com/2018/05/tecnicas-para-escapar-de-restricted--shells.html) and after trying a few of the methods, initiating the connection with `-t "bash --noprofile"` is successful in giving us an unrestricted shell. After that we look around for a bit and find the flag in the root directory.
