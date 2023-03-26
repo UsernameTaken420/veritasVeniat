@@ -47,7 +47,7 @@ As a first step, we run `strings` and `readelf` on the file to check for anythin
 Trying to execute the program, we are asked for input on what the tablet says, so it's probably comparing our input to the actual flag.
 ![](/rev_1_1.PNG)
 
-Throwing the executable into Ghidra, we find tha the `main()` function takes the input and compares it to the flag character by character... but out of order.
+Throwing the executable into Ghidra, we find that the `main()` function takes the input and compares it to the flag character by character... but out of order.
 ![](/rev_1_2.PNG)
 
 Paying attention to the order of comparisons, we spot the initial characters of the flag (`HTB{`) as `local_48`, `local_48._1_1_`, `local_48._2_1_` and `local_48._3_1_`. 
