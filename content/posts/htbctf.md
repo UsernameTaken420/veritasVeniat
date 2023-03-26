@@ -45,13 +45,16 @@ Jumping into the challenge, we receive a compressed executable file with the fla
 As a first step, we run `strings` and `readelf` on the file to check for anything that stands out but no luck.
 
 Trying to execute the program, we are asked for input on what the tablet says, so it's probably comparing our input to the actual flag.
+
 ![](/rev_1_1.PNG)
 
 Throwing the executable into Ghidra, we find that the `main()` function takes the input and compares it to the flag character by character... but out of order.
+
 ![](/rev_1_2.PNG)
 
 Paying attention to the order of comparisons, we spot the initial characters of the flag (`HTB{`) as `local_48`, `local_48._1_1_`, `local_48._2_1_` and `local_48._3_1_`. 
 Manually continuing this process until we have what we assume to be the flag, we try the resulting string as input and... it's correct!
+
 ![](/rev_1_3.PNG)
 
 ## Roten
@@ -65,9 +68,11 @@ First order of business is to sort through the requests for the juicy bits, for 
 ### Missing the forest for the trees
 
 Filtering for the `GET` requests, we can spot how they start normally, with the adversary going through the normal flow of the website, then at one point begin fuzzing for a specific file.
+
 ![](/for_1_3.PNG)
 
 After they find it (which we see because of the request receiving a response code of 200), they start appending some query parameters to the URL, in particular `dir` and `cmd`.
+
 ![](/for_1_4.PNG)
 
 From looking at the requests pointed at the malicious file, we can gather:
@@ -80,18 +85,23 @@ But just looking at these requests is not enough to point us to the flag.
 ### Going POSTal
 
 Looking for the `POST` requests made, we spot a grand total of 9 of them. 
+
 ![](/for_1_1.PNG)
 
 Browsing through the contents of the most suspicious one, we see a .php file being submitted.
+
 ![](/for_1_2.PNG)
 
 Taking a peep at the code does not reveal much, since it appears to be obfuscated.
+
 ![](/for_1_5.PNG)
 
 Trying to run it in the console with `php`, we get some actual HTML and a whole lot of PHP Warnings about `eval()`
+
 ![](/for_1_6.PNG)
 
 Throwing the file into vim and mass-replacing the `eval()` for `echo()` lets us execute the php file with no warnings, revealing the flag hidden as a comment.
+
 ![](/for_1_7.PNG)
 
 ## Passman
@@ -107,6 +117,7 @@ Decoding said token from base64 we find that it contains an `is_admin: 0` parame
 
 Stepping back and focusing on the GraphQL portion, with the help of [hacktricks.xyz](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/graphql) 
 we manage to dump the entire GraphQL schema, and among the mutations offered we find `UpdatePassword`.
+
 ![](/web_1_2.PNG)
 
 Just calling the mutation as-is confirms that authentication is required, so we register a new account and intercept the first request to a mutation made, replacing the 
