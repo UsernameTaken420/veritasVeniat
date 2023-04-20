@@ -15,3 +15,19 @@ And so began my fight against Caves of Qud, XML and even my own file system.
 
 ## Adventures in XML
 
+The first point to understand in making mods for this game is that the entirety of the creatures within are 
+defined by way of XML files, from their base stats to their bodyplans and whether they generate a corpse on death.
+
+For my first modding objective, I wanted to add a particular worm-like creature: a Sliver from Magic: the Gathering. 
+Such a creature's XML started by looking like this:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<objects>
+	<object Name="sleepy_Sliver" Load="Load" Inherits="BaseWorm">
+	</object>
+</objects>
+```
+
+The first line defines the XML version to be used in the file and the encoding, standard stuff. Next up we define 
+a list of `objects` and immediately start to define an `object` inside (intuitive, huh?).
