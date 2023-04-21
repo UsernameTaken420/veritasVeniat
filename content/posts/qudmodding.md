@@ -31,3 +31,12 @@ Such a creature's XML started by looking like this:
 
 The first line defines the XML version to be used in the file and the encoding, standard stuff. Next up we define 
 a list of `objects` and immediately start to define an `object` inside (intuitive, huh?).
+
+It is defined in the "modding best practices" section of the game wiki to prefix every modded object name with an 
+unique ID, usually the modder's name as an example and as I've done above.
+
+`Load` is an interesting attribute, it dictates how the game will attempt to load the object or table, either 
+appending it to an existing one (say, if one wished to add something by default to one of the existing creatures 
+in the game) by setting the attribute to `Merge`, which merges everything in the current object with an existing 
+one with the same name (and funnily enough, does not instance a new one if such an object does not already exist). 
+The other option, used here, is `Load`, which simply instances the object as a new one.
