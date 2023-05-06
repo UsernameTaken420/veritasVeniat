@@ -40,3 +40,11 @@ appending it to an existing one (say, if one wished to add something by default 
 in the game) by setting the attribute to `Merge`, which merges everything in the current object with an existing 
 one with the same name (and funnily enough, does not instance a new one if such an object does not already exist). 
 The other option, used here, is `Load`, which simply instances the object as a new one.
+
+`Inherits` is probably the most useful attribute on this snipper, and is something those of you familiar with OOP 
+will already be familiar with: it sets the given Object as a parent for this one, meaning it inherits the entire 
+body plan from the parent to use as a base.
+
+## Result
+
+![](/sliver.PNG)
