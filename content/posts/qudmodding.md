@@ -89,3 +89,5 @@ Next up we begin building our creature's particularities:
 ## Result
 
 ![](/sliver.PNG)
+
+The entire code is over at [Github](https://github.com/UsernameTaken420/sleepy_Sliver)
