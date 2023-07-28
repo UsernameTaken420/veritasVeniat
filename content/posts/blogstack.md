@@ -25,8 +25,8 @@ The idea of owning a personal domain has been a point of interest for me for qui
 
 ### The setup
 
-From the get-go, the idea was to have everything from the blog available on Github (https://github.com/UsernameTaken420/veritasVeniat), so this meant that the code had to be stored there and (if possible) not require any sort of manual steps to cause a site update on commit.
+From the get-go, the idea was to have everything from the blog available on [Github](https://github.com/UsernameTaken420/veritasVeniat), so this meant that the code had to be stored there and (if possible) not require any sort of manual steps to cause a site update on commit.
 
 ### Minimal AWS knowledge to the rescue
 
-AWS Amplify Hosting (https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) turned out to be the answer to my plight, straight-up taking the latest Github commit, running `hugo server` and hosting the result.
+[AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) turned out to be the answer to my plight, straight-up taking the latest Github commit, running `hugo server` and hosting the result.
