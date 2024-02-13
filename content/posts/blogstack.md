@@ -30,3 +30,7 @@ From the get-go, the idea was to have everything from the blog available on [Git
 ### Minimal AWS knowledge to the rescue
 
 [AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) turned out to be the answer to my plight, straight-up taking the latest Github commit, running `hugo server` and hosting the result.
+
+### Lord of my domain
+
+Next logical step was, of course, actually purchasing the doman for the site. This was also done through AWS, in particular, AWS Route 53 turned out to be quite intuitive for going through the process.
