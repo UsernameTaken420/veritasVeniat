@@ -20,7 +20,7 @@ Last updated: 2023-01-28
 
 | Title | Timeframe | Company | \$\$\$ (UYU) | Nominal (UYU) |
 | --- | --- | --- | --- | --- |
-| Trainee QA Software Tester | Sep 2021 - Dec 2021 | Jam3 | 28140 | 35000 |
+| Trainee QA Software Tester | Sep 2021 - Dec 2021 | Jam3 (Currently Experience.Monks) | 28140 | 35000 |
 | - | Dec 2021 - Jan 2022 | - | 29220 | 36458 |
 | Software Tester | Jan 2022 - May 2022 | - | 38000 | 50000 |
 | - | May 2022 - Jul 2022 | - | 45800 | 59841 |
