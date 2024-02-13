@@ -34,3 +34,15 @@ From the get-go, the idea was to have everything from the blog available on [Git
 ### Lord of my domain
 
 Next logical step was, of course, actually purchasing the doman for the site. This was also done through AWS, in particular, AWS Route 53 turned out to be quite intuitive for going through the process.
+
+### It's not green, it's ~Shamrock~
+
+I had already settled on Fuji as my theme of choice for the blog, but I needed to pick a colour scheme that was not only in line with my aesthetic preferences, but also had enough contrast to pass [AA Accessibility](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) (at least). For this end, I looked through the posts from [random color contrasts](https://botsin.space/@randomColorContrasts) on Mastodon until I found a suitable combination.
+
+## Issues still to be resolved
+
+### Images
+
+To this day, images are stored uncompressed in the same github repository that holds the entire site, this means that every time a post is loaded, any images within are sent to the user uncompressed and unoptimized, potentially resulting in slower load times (and higher bandwith use).
+
+On this front I'm currently considering storing compressed versions of the images on an S3 instance, in order to keep in line with every part of the stack being on AWS (and not depending on something like Imgur not deleting stale images).
