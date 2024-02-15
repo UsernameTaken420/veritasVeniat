@@ -1,7 +1,6 @@
 ---
 title: "shioCTF"
 date: 2024-02-13T08:51:14-03:00
-draft: true
 tags:
 - CTF
 - shioCTF 
@@ -67,8 +66,8 @@ card_data = card_data.replace('&','')
 card_data = card_data.replace('%','')
 ```
 
-Changing angles a bit, there is really no verification at all done on the sent `userid`, the search just picks up the files that start with the given `userid`, therefore we can just send a shorter one until we get all of the submitted cards.
-Doing so, we find the flag to be `shioCTF{UTF7_1s_u5efu1_enc0d1ng}`
+At first, I consider trying to find a way to sidestep those safeguards but quickly realize it's getting me nowhere. Changing angles a bit and going back to look at the flask code, there is really no verification at all done on the sent `userid`, the search just picks up the files that start with the given `userid`, meaning we can just send a shorter one like `a` and so on until we get all of the submitted cards.
+Doing so, we find the flag to be `shioCTF{UTF7_1s_u5efu1_enc0d1ng}` and finish the Web portion of the CTF.
 
 ### Analysis
 From the flag text, I'm assuming the expectation was to `UTF7` encode the message in order to get around the replacements for `&` and `%` symbols and attempt an XML External Entity Injection. I'd like to come back to this and try the "correct" solution.
