@@ -1,11 +1,11 @@
 ---
-title: "On utterly failing at CTFs"
+title: "Notes on a bunch of challenges I never completed"
 date: 2023-06-19T00:07:18-03:00
 tags:
 - CTF
 ---
 
-Or how to recover from riding the high of doing good but crashing against practical application
+Sometimes you just don't crack it
 
 <!--more-->
 
@@ -125,15 +125,12 @@ Time skip some weeks and we're at Nahamcon CTF 2023 and immediately in I face a 
 
 On navigating to our generated URL, the user is asked for a username, and attempting to login as `admin` is not allowed.
 Logging in, "only the admin can see the flag" is displayed.
+
 The user receives a JWT with the current username encoded and the encoding displayed as MD5_HMAC, attempting to modify it returns `Invalid signature, we only accept tokens signed with our MD5_HMAC algorithm using the secret fsrwjcfszeg*****`
+
 Given most of the work has been cut out for us, I figure I could just make a script to bruteforce the secret, it's just 5 unknown characters after all. Go through each possibility signing our existing JWT with each attempt and comparing to the one we already have.
 
 ...except I never got around to it, feeling confident in that bruteforcing it would take a while I left the challenge for the rear end of the CTF, and with life stuff getting in the way ***I never actually did it***.
 Putting the life stuff aside, leaving stuff on the over and never coming back to check on it is a surefire way to not get anything done.
 
 All in all, while coming away empty handed from a CTF feels frustrating, reading writeups after the fact and seeing how close you were to solving the problem is an even more frustrating takeaway, signifying you aimed at the right place but *just not enough*.}
-
-## Next target?
-This very Friday starts Google's own yearly CTF event, and I plan on taking all my learnings from these past CTFs and giving it an honest go in full force, see you there! 
-https://capturetheflag.withgoogle.com/
-
