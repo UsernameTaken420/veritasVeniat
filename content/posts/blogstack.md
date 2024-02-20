@@ -46,3 +46,7 @@ I had already settled on Fuji as my theme of choice for the blog, but I needed t
 To this day, images are stored uncompressed in the same github repository that holds the entire site, this means that every time a post is loaded, any images within are sent to the user uncompressed and unoptimized, potentially resulting in slower load times (and higher bandwith use).
 
 On this front I'm currently considering storing compressed versions of the images on an S3 instance, in order to keep in line with every part of the stack being on AWS (and not depending on something like Imgur not deleting stale images).
+
+## Stuff I'd like to add
+
+Mostly based around [This post](https://jamesg.blog/2024/02/19/personal-website-ideas/), I found 46, 81 and 84 to be really interesting. Given this site is created from a heavily-mutilated template, I'd like to see what it'd take to implement hovercards (sidenotes are cute, but not quite necessary).
