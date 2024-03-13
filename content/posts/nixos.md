@@ -13,13 +13,14 @@ NixOS is, against all prior expectations, pretty cool and intuitive to use.
 ### The pitch
 
 NixOS' selling point is, in short, being able to copy your `configuration.nix` file anywhere and have the exact same system (save for any data within), this is immediately attractive to anyone having to set up multiple machines... or people who don't want their unique setup to be lost.
+
 Another thing NixOS allows is fast, painless experimentation by having all the system packages defined in the same place, allowing the user to try a new package and remove it with absolutely no side-effects (sans the need for garbage collection at some point).
 
 ### How did the `switch` command go, again?
 
 One of the first things to do when jumping onto the NixOS ship is to define your own personal aliases for the much-used `vim /etc/nixos/configuration.nix` and `nixos-rebuild switch`. In my case, I traded the convenience of short aliases for something I would actually remember:
-- `nix-edit='sudo vim /etc/nixos/configuration.nix; sudo cp /etc/nixos/configuration.nix /home/peridot/dotfiles/configuration.nix'`: there is literally no way I'm remembering to update `configuration.nix` in my dotfiles repo, and having it all in one command makes it easier. This is all helped by `wheel`-group users not needing password to use `sudo` thanks to my config
-- `alias nix-refresh='sudo nixos-rebuild switch'`: very easy to remember for me
+- `nix-edit='sudo vim /etc/nixos/configuration.nix; sudo cp /etc/nixos/configuration.nix /home/peridot/dotfiles/configuration.nix'`: there is literally no way I'm remembering to update `configuration.nix` in my dotfiles repo, and having it all in one command makes it easier. This is all helped by `wheel`-group users not needing password to use `sudo` thanks to my config.
+- `alias nix-refresh='sudo nixos-rebuild switch'`: very easy to remember for me.
 - `alias nix-clean='sudo nix-collect-garbage -d'`: some 20 versions in, I started to get "Out of space" errors when doing `nix-refresh`, turned out I was saving all of my previous versions, which were hogging a lot of space.
 
 ### The `minecraft-server` problem
