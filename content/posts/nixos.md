@@ -62,3 +62,7 @@ As it usually happens, I was not the first to be faced with this situation, look
 #### Downside
 
 The one thing I realized is that for every Minecraft update on my `prism-launcher` client, I'm gonna have to re-download the `minecraft-server.jar`, get the SHA256 and replace those values in my `configuration.nix`, which should be quickly fixed by making a script for it.
+
+### These packages, but only here
+
+something something direnv
