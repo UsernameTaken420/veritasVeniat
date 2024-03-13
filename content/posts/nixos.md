@@ -1,7 +1,6 @@
 ---
 title: "NixOS"
 date: 2024-02-27T01:49:42-03:00
-draft: true
 tags:
 - NixOS
 ---
