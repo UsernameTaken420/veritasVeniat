@@ -65,4 +65,18 @@ The one thing I realized is that for every Minecraft update on my `prism-launche
 
 ### These packages, but only here
 
-something something direnv
+At one point I realized that if I wanted to use my NixOS computer for programming, I was going to have to be organized about it. My two options were using Flakes (more on that at some point) or `direnv`, and given the apparent complexity of flakes at first glance, I opted for the latter.
+
+With `direnv` you can just declare the packages that you want installed inside a `nix-shell` and said shell will only be active inside the directory that contains the direnv files, resulting in (as I have) a `Python/` directory that contains my version of python of choice and any libraries I declare, but without those being present anywhere else on my system. This has the added benefit of enabling me to have a different directory on my system where I can install a completely different version of python (say `2.x` if I had to do maintenance on older code) and not run into the usual problem of `python` vs `python3`.
+
+The only things needed to make it work are:
+- inside `~/.bashrc`: `eval "$(direnv hook bash)"`
+- `shell.nix`:
+```nix
+{ pkgs ? import <nixpkgs> {}}:
+
+pkgs.mkShell {
+  packages = [ pkgs.hugo ];
+}
+```
+- `.envrc`: `use nix` (Flakes users would instead have `use flake .` here)
