@@ -16,7 +16,7 @@ Or, in Xe's better worded words:
 
 I've neglected to tag which were actual performance-based raises or inflation adjustment.
 
-Last updated: 2023-01-28
+Last updated: 2024-07-02
 
 | Title | Timeframe | Company | \$\$\$ (UYU) | Nominal (UYU) |
 | --- | --- | --- | --- | --- |
