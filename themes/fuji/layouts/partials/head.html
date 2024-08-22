@@ -11,13 +11,16 @@
 		"@context": "https://schema.org",
 		"@type": "BlogPosting",
 		"headline": {{ .Title }},
-		"description": {{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }},
+		"description": {{ if .Summary }}{{ trim (.Summary | plainify) "\n" }}{{ else }}{{ .Site.Params.description }}{{ end }},
+		"url": {{ printf "%s" .Permalink  }},
 		"author": {
 			"@type": "Person",
 			"name": {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }},
 			"email": "ngabin1999@gmail.com"
 			"url": "https://www.veritasveniat.com/about/"
 		}
+		"datePublished": {{ .PublishDate }},
+		"dateModified": {{ .Date }},
 	}
 </script>
 <!-- favicon -->
