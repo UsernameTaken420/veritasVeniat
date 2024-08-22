@@ -1,7 +1,7 @@
 ---
 title: "Blogstack"
 date: 2023-07-27T23:50:31-03:00
-draft: true
+draft: false
 tags:
 - Stack
 - Meta
@@ -60,8 +60,7 @@ After reading [this csvbase article on The Semantic Web](https://csvbase.com/blo
 			"email": "ngabin1999@gmail.com"
 			"url": "https://www.veritasveniat.com/about/"
 		}
-		"datePublished": {{ .PublishDate }},
-		"dateModified": {{ .Date }},
+		"datePublished": {{ .PublishDate }}
 	}
 </script>
 ```
