@@ -39,6 +39,34 @@ Next logical step was, of course, actually purchasing the doman for the site. Th
 
 I had already settled on Fuji as my theme of choice for the blog, but I needed to pick a colour scheme that was not only in line with my aesthetic preferences, but also had enough contrast to pass [AA Accessibility](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) (at least). For this end, I looked through the posts from [random color contrasts](https://botsin.space/@randomColorContrasts) on Mastodon until I found a suitable combination.
 
+### Stuff that should be eradicated from the web
+
+Another important step in lobotomizing the default fuji template was to remove any and all mentions of Google Analytics, Adsense and Disqus. I do not want those features nor need them taking up space.
+
+### JSON-LD
+
+After reading [this csvbase article on The Semantic Web](https://csvbase.com/blog/13) I felt inspired to add JSON-LD to every post, if anything to make sure they're displayed correctly on Mastodon, this was an interesting excercise as the resulting `<script>` block in `head.html` amounts to the following:
+```html
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": {{ .Title }},
+		"description": {{ if .Summary }}{{ trim (.Summary | plainify) "\n" }}{{ else }}{{ .Site.Params.description }}{{ end }},
+		"url": {{ printf "%s" .Permalink  }},
+		"author": {
+			"@type": "Person",
+			"name": {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }},
+			"email": "ngabin1999@gmail.com"
+			"url": "https://www.veritasveniat.com/about/"
+		}
+		"datePublished": {{ .PublishDate }},
+		"dateModified": {{ .Date }},
+	}
+</script>
+```
+It took a few tries but I got it working in the end! I'll get to `<meta>` tags at some other point...
+
 ## Issues still to be resolved
 
 ### Images
