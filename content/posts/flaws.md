@@ -146,8 +146,8 @@ We learn from the post-stage writeup that the `169.254.169.254` IP is basically 
 ## Level 6
 > For this final challenge, you're getting a user access key that has the SecurityAudit policy attached to it. See what else it can do and what else you might find in this AWS account.
 > 
-> Access key ID: `AKIAJFQ6E7BY57Q3OBGA`
-> Secret: `S2IpymMBlViDlqcAnFuZfkVjXrYxZYhP+dZ4ps+u`
+> Access key ID: `[Redacted]`
+> Secret: `[Redacted]`
 
 Straight up we try the obvious: `aws s3 ls level6-cc4c404a8a8b876167f5e70a7d8c9880.flaws.cloud` with the provided credentials but no dice:
 ```
