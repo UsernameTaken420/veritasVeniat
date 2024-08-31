@@ -1,6 +1,9 @@
 ---
 title: "flAWS"
 date: 2024-08-31T03:30:01-03:00
+tags:
+- aws
+- security
 ---
 
 [flaws.cloud](http://flaws.cloud/) is a series of AWS-based challenges with the aim of teaching about common mistakes and gotchas of the platform.
