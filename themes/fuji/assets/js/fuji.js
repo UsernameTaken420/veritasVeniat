@@ -54,6 +54,45 @@ function updateUtterancesTheme(utterancesFrame) {
   }
 }
 
+// theme switch button
+document.querySelector('.btn .btn-toggle-mode').addEventListener('click', () => {
+  let nowTheme = getNowTheme();
+  let domTheme = document.body.getAttribute('data-theme');
+  const needAuto = document.body.getAttribute('data-theme-auto') === 'true';
+  let systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+  if (domTheme === 'auto') {
+    // if now in auto mode, switch to user mode
+    document.body.setAttribute('data-theme', nowTheme === 'light' ? 'dark' : 'light');
+    localStorage.setItem('fuji_data-theme', nowTheme === 'light' ? 'dark' : 'light');
+  } else if (domTheme === 'light') {
+    const tar = systemTheme === 'dark' ? (needAuto ? 'auto' : 'dark') : 'dark';
+    document.body.setAttribute('data-theme', tar);
+    localStorage.setItem('fuji_data-theme', tar);
+  } else {
+    const tar = systemTheme === 'light' ? (needAuto ? 'auto' : 'light') : 'light';
+    document.body.setAttribute('data-theme', tar);
+    localStorage.setItem('fuji_data-theme', tar);
+  }
+
+  // switch comment area theme
+  // if this page has comment area
+  let commentArea = document.querySelector('.post-comment');
+  if (commentArea) {
+    // if comment area loaded
+    if (document.querySelector('span.post-comment-notloaded').getAttribute('style')) {
+      if (commentArea.getAttribute('data-comment') === 'utterances') {
+        updateUtterancesTheme(document.querySelector('.post-comment iframe'));
+      }
+      if (commentArea.getAttribute('data-comment') === 'disqus') {
+        DISQUS.reset({
+          reload: true,
+        });
+      }
+    }
+  }
+});
+
 // search by fuse.js
 function searchAll(key, index, counter) {
   let fuse = new Fuse(index, {
