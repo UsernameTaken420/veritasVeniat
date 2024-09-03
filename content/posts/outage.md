@@ -8,4 +8,4 @@ tags:
 
 Site might be out of service for a few hours as I untangle my spaghetti Terraform code to re-deploy the app correctly.
 
-Expect a post-mortem!
+Expect a post-mortem... [here!](../terraformlog)
