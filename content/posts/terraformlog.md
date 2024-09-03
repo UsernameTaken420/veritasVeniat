@@ -261,6 +261,8 @@ Our new problem is not being able actually finish deploying due to the following
 Most google results point to this being an issue with either the image in use not having the correct version of Go installed or using a non-Extended version of Hugo. 
 As it turns out, the problem was us all along! The original version of the site was built with the image `"amplify:al2"`, so by removing that from the environment variables, the site now builds with the default version of Amazon Linux 2023.
 
+After fighting about a trillion failed file integrity check commits (check the repo's commit history, it's hilarious... not) I realized my main problem was having edited the source file for the theme's javascript, resulting in the file's SHA 512 at the moment not matching the expected one for anything else in the site. Here I had to get humbled and roll back around ~20 commits trying to fix it by hand, being careful not to revert any actually functional or content-having commits along the way.
+
 ## The final file
 Here's the final code that is deployed *right now*:
 
