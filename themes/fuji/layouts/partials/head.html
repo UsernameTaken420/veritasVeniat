@@ -7,20 +7,20 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 {{ hugo.Generator }}
 <script type="application/ld+json">
-{
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	"headline": {{ .Title }},
-	"description": {{ if .Summary }}{{ trim (.Summary | plainify) "\n" }}{{ else }}{{ .Site.Params.description }}{{ end }},
-	"url": {{ printf "%s" .Permalink  }},
-	"author": {
-		"@type": "Person",
-		"name": {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }},
-		"email": "ngabin1999@gmail.com",
-		"url": "https://www.veritasveniat.com/about/"
-	},
-	"datePublished": {{ .PublishDate }},
-}
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": {{ .Title }},
+		"description": {{ if .Summary }}{{ trim (.Summary | plainify) "\n" }}{{ else }}{{ .Site.Params.description }}{{ end }},
+		"url": {{ printf "%s" .Permalink  }},
+		"author": {
+			"@type": "Person",
+			"name": {{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Params.author }}{{ end }},
+			"email": "ngabin1999@gmail.com",
+			"url": "https://www.veritasveniat.com/about/"
+		},
+		"datePublished": {{ .PublishDate }},
+	}
 </script>
 <!-- favicon -->
 {{ partial "favicon.html" . }}
@@ -42,7 +42,7 @@
 <meta name="keywords" content="{{ delimit .Params.tags ", " }}" />
 {{ end }}
 {{ with .OutputFormats.Get "rss" -}}
-{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
 <!-- og -->
 {{ partial "opengraph.html" . }}
@@ -50,5 +50,5 @@
 {{ partial "styles.html" . }}
 {{ $options := (dict "targetPath" "assets/css/fuji.min.css" "outputStyle" "compressed") }}
 {{ $style := resources.Get "scss/fuji.scss" | resources.ToCSS $options | resources.Fingerprint "sha512" }}
-<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}"/>
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" />
 
