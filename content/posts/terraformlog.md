@@ -291,7 +291,7 @@ resource "aws_amplify_app" "veritasveniat" {
 	name = "veritasveniat"
 	repository = "https://github.com/UsernameTaken420/veritasVeniat"
 	platform = "WEB"
-	access_token = "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"
+	access_token = [REDACTED]
 
 	custom_rule {
 		source = "/<*>"
