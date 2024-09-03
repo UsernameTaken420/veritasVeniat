@@ -10,7 +10,7 @@
 {{ end }}
 {{ $options := (dict "targetPath" "assets/js/fuji.min.js" "minify" true "target" "es2015" "format" "iife") }}
 {{ $built := resources.Get "js/fuji.js" | js.Build $options | resources.Fingerprint "sha512" }}
-<script defer src="{{ $built.RelPermalink }}" integrity=""></script>
+<script defer src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}"></script>
 {{ if or .Params.math .Site.Params.math }}
 {{ partial "math.html" . }}
 {{ end }}
