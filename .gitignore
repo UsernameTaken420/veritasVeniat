@@ -10,3 +10,8 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Terraform stuff
+.terraform
+*.tfstate
+*.tfstate.backup
