@@ -12,6 +12,6 @@ hugo.linux
 /.hugo_build.lock
 
 # Terraform stuff
-.terraform
+.terraform*
 *.tfstate
 *.tfstate.backup
