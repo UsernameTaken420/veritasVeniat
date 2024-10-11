@@ -28,3 +28,4 @@ Last updated: 2024-07-02
 | - | May 2023 - Mar 2024 | - | 72000 |
 | - | Mar 2024 - Jun 2024 | - | 80000 |
 | Junior Advanced Functional Tester | Oct 2024 - Current | Abstracta | 73010 |
+
