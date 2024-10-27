@@ -126,14 +126,18 @@ name = "GitHub"
 url = "https://github.com/UsernameTaken420"
 weight = 1
 [[menu.link]]
-name = "Twitter"
-url = "https://twitter.com/greenFrogzard"
+name = "Bluesky"
+url = "https://bsky.app/profile/raginggoblin.bsky.social"
 weight = 2
 [[menu.link]]
 name = "Mastodon"
 url = "https://infosec.exchange/@ragingGoblin"
 rel = "me"
 weight = 3
+[[menu.link]]
+name = "Twitter"
+url = "https://twitter.com/greenFrogzard"
+weight = 4
 
 [build]
 noJSConfigInAssets = false
