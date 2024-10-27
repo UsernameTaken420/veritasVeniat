@@ -18,12 +18,13 @@ I've neglected to tag which were actual performance-based raises or inflation ad
 
 Last updated: 2024-07-02
 
-| Title | Timeframe | Company | \$\$\$ (UYU) | Nominal (UYU) |
-| --- | --- | --- | --- | --- |
-| Trainee QA Software Tester | Sep 2021 - Dec 2021 | Jam3 (Currently Experience.Monks) | 28140 | 35000 |
-| - | Dec 2021 - Jan 2022 | - | 29220 | 36458 |
-| Software Tester | Jan 2022 - May 2022 | - | 38000 | 50000 |
-| - | May 2022 - Jul 2022 | - | 45800 | 59841 |
-| - | Jul 2022 - Jan 2023 | - | 47450 | 63650 |
-| - | May 2023 - Jun 2024 | - | ??? | 72000 |
-
+| Title | Timeframe | Company | Salary (UYU) |
+| --- | --- | --- | --- |
+| Trainee QA Software Tester | Sep 2021 - Dec 2021 | Experience.Monks (Formerly Jam3) | 35000 |
+| - | Dec 2021 - Jan 2022 | - | 36458 |
+| Software Tester | Jan 2022 - May 2022 | - | 50000 |
+| - | May 2022 - Jul 2022 | - | 59841 |
+| - | Jul 2022 - Jan 2023 | - | 63650 |
+| - | May 2023 - Mar 2024 | - | 72000 |
+| - | Mar 2024 - Jun 2024 | - | 80000 |
+| Junior Advanced Functional Tester | Oct 2024 - Current | Abstracta | 73010 |
