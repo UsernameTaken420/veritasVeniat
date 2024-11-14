@@ -29,7 +29,12 @@ resource "aws_amplify_app" "veritasveniat" {
 	custom_rule {
 		source = "https://veritasveniat.com"
 		status = 302
-		target = "https://www.veritasveniat.com"
+		target = "https://blog.veritasveniat.com"
+	}
+	custom_rule {
+		source = "https://www.veritasveniat.com"
+		status = 302
+		target = "https://blog.veritasveniat.com"
 	}
 	
 	build_spec = <<-EOT
@@ -72,7 +77,7 @@ resource "time_sleep" "wait_40_seconds" {
 
 resource "aws_amplify_domain_association" "domainAssociation" {
 	app_id = aws_amplify_app.veritasveniat.id
-	domain_name = "veritasveniat.com"
+	domain_name = "blog.veritasveniat.com"
 	
 	# https://veritasveniat.com
 	sub_domain {
