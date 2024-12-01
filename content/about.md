@@ -37,7 +37,7 @@ Security enthusiast, devops, tester, general weeb and lover of low-poly ps1 mode
 
 ### Currently aiming for
 
-- [Practical Junior Malware Researcher (PJMR)](https://certifications.tcm-sec.com/pjmr/)
+- [Practical Malware Research Professional (PMRP)](https://certifications.tcm-sec.com/pmrp/)
 - [Certified Kubernetes Administrator (CKA)](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/)
 
 ## Stuff I've made
