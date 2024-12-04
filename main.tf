@@ -78,17 +78,8 @@ resource "time_sleep" "wait_40_seconds" {
 resource "aws_amplify_domain_association" "domainAssociation" {
 	app_id = aws_amplify_app.veritasveniat.id
 	domain_name = "blog.veritasveniat.com"
-	
-	# https://veritasveniat.com
 	sub_domain {
 		branch_name = aws_amplify_branch.master.branch_name
 		prefix = ""
 	}
-	# https://www.veritasveniat.com
-	sub_domain {
-		branch_name = aws_amplify_branch.master.branch_name
-		prefix = "www"
-	}
-
-	depends_on = [ resource.time_sleep.wait_40_seconds ]
 }
