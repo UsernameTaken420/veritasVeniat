@@ -38,7 +38,7 @@ Security enthusiast, devops, tester, general weeb and lover of low-poly ps1 mode
 ### Currently aiming for
 
 - [Practical Malware Research Professional (PMRP)](https://certifications.tcm-sec.com/pmrp/)
-- [Certified Kubernetes Administrator (CKA)](https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/)
+- [AWS Red Team Expert (ARTE)](https://training.hacktricks.xyz/courses/arte)
 
 ## Stuff I've made
 
