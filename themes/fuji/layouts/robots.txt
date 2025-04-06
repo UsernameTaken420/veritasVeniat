@@ -2,6 +2,8 @@ User-agent: GPTBot
 User-agent: GPTBot-User
 User-agent: ChatGPT
 User-agent: ChatGPT-User
+User-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/605.1.15 (KHTML, like Gecko; compatible; FriendlyCrawler/1.0) Chrome/120.0.6099.216 Safari/605.1.15
+User-agent: FriendlyCrawler/Nutch-1.20-SNAPSHOT
 Disallow: /
 
 Sitemap: {{ "/sitemap.xml" | absURL }}
