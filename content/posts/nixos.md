@@ -9,6 +9,11 @@ NixOS is, against all prior expectations, pretty cool and intuitive to use.
 
 <!--more-->
 
+## Errata 
+As of 2025/04/09, this post is no longer accurate to the reality of my development machine.
+
+Maintenance fatigue is real, and, as it turns out, so is the concern in the optics if groups such as the Nix maintenance team. I have since changed my laptop OS to just plain Ubuntu 24.12 and running it as such until my requirements change (or the next shiny toy comes along I guess)
+
 ### The pitch
 
 NixOS' selling point is, in short, being able to copy your `configuration.nix` file anywhere and have the exact same system (save for any data within), this is immediately attractive to anyone having to set up multiple machines... or people who don't want their unique setup to be lost.
